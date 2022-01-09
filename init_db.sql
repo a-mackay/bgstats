@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS bgs (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS plays (
+    id INTEGER PRIMARY KEY,
+    bg_id INTEGER NOT NULL,
+    date TEXT NOT NULL,
+    CONSTRAINT fk_bg_id
+        FOREIGN KEY (bg_id)
+        REFERENCES bgs (id)
+            ON DELETE NO ACTION
+            ON UPDATE CASCADE
+);
